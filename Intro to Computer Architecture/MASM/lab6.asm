@@ -50,6 +50,4 @@ Main	proc
 
 Main	endp
 	end main
-
-;getInput
 	
