@@ -1,0 +1,252 @@
+Script started on Mon 06 Feb 2017 03:20:09 PM PST
+[wrightr@athena:21]> cd CSC60
+[wrightr@athena:22]> mkdir Lab2
+[wrightr@athena:23]> pwd
+/gaia/class/student/wrightr/CSC60
+[wrightr@athena:24]> cd Lab2
+[wrightr@athena:25]> pwd
+/gaia/class/student/wrightr/CSC60/Lab2
+[wrightr@athena:26]> mkdir xyz
+[wrightr@athena:27]> cd xyz
+[wrightr@athena:28]> pwd
+/gaia/class/student/wrightr/CSC60/Lab2/xyz
+[wrightr@athena:29]> cd ..
+[wrightr@athena:30]> pwd
+/gaia/class/student/wrightr/CSC60/Lab2
+[wrightr@athena:31]> ls > file1
+[wrightr@athena:32]> cat file1
+file1
+xyz/
+[wrightr@athena:33]> less file1
+[?1049h[?1h=file1
+xyz/
+[7mfile1 (END) [27m[K[K...skipping...
+file1
+xyz/
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[7m(END) [27m[K[K[?1l>[?1049l[wrightr@athena:34]> file *
+file1: ASCII text
+xyz:   setgid directory
+[wrightr@athena:35]> wc file1
+ 2  2 11 file1
+[wrightr@athena:36]> wc *
+      2       2      11 file1
+wc: xyz: Is a directory
+      0       0       0 xyz
+      2       2      11 total
+[wrightr@athena:37]> grep lab file1
+[wrightr@athena:38]> cp file1 file2
+[wrightr@athena:39]> ls
+file1  file2  xyz/
+[wrightr@athena:40]> cd xyz
+[wrightr@athena:41]> cp ../file1
+cp: missing destination file operand after `../file1'
+Try `cp --help' for more information.
+[wrightr@athena:42]> cp ../file1 .
+[wrightr@athena:43]> ls
+file1
+[wrightr@athena:44]> mv file1 file2
+[wrightr@athena:45]> ls
+file2
+[wrightr@athena:46]> mv ../file1 .
+[wrightr@athena:47]> cd ..
+[wrightr@athena:48]> ls
+file2  xyz/
+[wrightr@athena:49]> cd xyz
+[wrightr@athena:50]> cmp file1 file2
+[wrightr@athena:51]> ls > xyzlist
+[wrightr@athena:52]> cmp file1 xyzlist
+file1 xyzlist differ: byte 7, line 2
+[wrightr@athena:53]> diff file1 zy[Kxyz[K[K[K[Kxyzlist
+2c2,3
+< xyz/
+---
+> file2
+> xyzlist
+[wrightr@athena:54]> rm file1
+[wrightr@athena:55]> ls
+file2  xyzlist
+[wrightr@athena:56]> ps -u
+Warning: bad syntax, perhaps a bogus '-'? See /usr/share/doc/procps-3.2.8/FAQ
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+wrightr  12200  0.0  0.0   5496  1892 pts/19   Ss   15:12   0:00 -csh
+wrightr  25111  0.0  0.0   4140   724 pts/19   S+   15:20   0:00 script RichardWright_Lab2.txt
+wrightr  25113  0.0  0.0   4652   356 pts/19   S+   15:20   0:00 script RichardWright_Lab2.txt
+wrightr  25114  0.0  0.0   5276  1672 pts/17   Ss   15:20   0:00 -sh -i
+wrightr  25724  0.0  0.0   5100  1200 pts/17   R+   15:25   0:00 ps -u
+[wrightr@athena:57]> ps -l
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  2379 25114 25113  0  80   0 -  1319 -      pts/17   00:00:00 csh
+0 R  2379 25725 25114  0  80   0 -  1222 -      pts/17   00:00:00 ps
+[wrightr@athena:58]> !!
+ps -l
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  2379 25114 25113  0  80   0 -  1319 -      pts/17   00:00:00 csh
+0 R  2379 25730 25114  0  80   0 -  1221 -      pts/17   00:00:00 ps
+[wrightr@athena:59]> history
+     1	15:43	1
+     2	15:46	vim prompt
+     3	15:46	prompt
+     4	15:48	run prompt
+     5	15:48	man csh
+     6	15:49	man csh > test
+     7	15:49	vim test
+     8	15:50	rm test
+     9	15:50	celar
+    11	15:53	chmod -x prompt
+    14	15:55	cd Labs
+    15	15:55	ls -l
+    16	15:57	set prompt = "%n@%m\[%~\]:%h > "
+    17	17:15	cd CSC60/Labs
+    18	17:15	a.out
+    19	15:12	clear
+    20	15:19	exit
+    21	15:20	cd CSC60
+    22	15:20	mkdir Lab2
+    24	15:20	cd Lab2
+    26	15:20	mkdir xyz
+    30	15:21	pwd
+    31	15:21	ls > file1
+    32	15:21	cat file1
+    33	15:21	less file1
+    34	15:21	file *
+    35	15:22	wc file1
+    36	15:22	wc *
+    37	15:22	grep lab file1
+    38	15:22	cp file1 file2
+    41	15:22	cp ../file1
+    42	15:22	cp ../file1 .
+    44	15:23	mv file1 file2
+    46	15:23	mv ../file1 .
+    47	15:23	cd ..
+    49	15:24	cd xyz
+    50	15:24	cmp file1 file2
+    51	15:24	ls > xyzlist
+    52	15:24	cmp file1 xyzlist
+    53	15:24	diff file1 xyzlist
+    54	15:24	rm file1
+    55	15:24	ls
+    56	15:25	ps -u
+    58	15:25	ps -l
+    59	15:25	history
+[wrightr@athena:60]> !3
+prompt
+prompt: Command not found.
+[wrightr@athena:61]> cd ..
+[wrightr@athena:62]> head lab1.c
+head: cannot open `lab1.c' for reading: No such file or directory
+[wrightr@athena:63]> head ~/CSC20/Labs/Lab1.c
+head: cannot open `/gaia/class/student/wrightr/CSC20/Labs/Lab1.c' for reading: No such file or directory
+[wrightr@athena:64]> exit
+exit
+
+Script done on Mon 06 Feb 2017 03:26:50 PM PST
+Script started on Mon 06 Feb 2017 03:30:09 PM PST
+[wrightr@atoz:21]> head Lab1.c
+/*                 */
+/* Richard Wright  */
+/* Section 1       */
+/* Lab 1           */
+/* Date: 01/30/17  */
+/*                 */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+[wrightr@atoz:22]> tail Lab1.c
+
+   printf("\nLab 1 \n\n");
+   printf("Hello World!\n");
+   printf("My name is Richard Wright\n\n ");
+   printf("'It is possible to commit no mistakes and still lose. That is not a weakness;\n  that is life.'\n     - Captain Jean-Luc Picard\n\n");
+   return EXIT_SUCCESS;
+
+}
+
+/*-----------------*/
+[wrightr@atoz:23]> ls -al | less
+[?1049h[?1h=total 20
+drwx--S--- 3 wrightr stdcsc 4096 Feb  6 15:28 ./
+drwx--S--- 4 wrightr stdcsc 4096 Feb  6 15:20 ../
+-rw------- 1 wrightr stdcsc   11 Feb  6 15:22 file2
+-rw------- 1 wrightr stdcsc  488 Feb  6 15:28 Lab1.c
+drwx--S--- 2 wrightr stdcsc 4096 Feb  6 15:24 xyz/
+[7m(END) [27m[K[K[?1l>[?1049l[wrightr@atoz:24]> history
+     1	15:49	vim test
+     2	15:50	rm test
+     3	15:50	celar
+     4	15:53	chmod -x prompt
+     5	15:55	ls -l
+     6	15:57	set prompt = "%n@%m\[%~\]:%h > "
+     7	17:15	cd CSC60/Labs
+     8	17:15	a.out
+     9	15:12	ssh atox
+    10	15:12	ssh atoz
+    11	15:17	pwd
+    12	15:17	cd CSC60
+    13	15:17	cd Labs
+    14	15:18	clear
+    15	15:19	cd ~
+    16	15:19	ls
+    17	15:19	rm CSC60/Labs/RichardWright_Lab2.txt
+    18	15:20	script RichardWright_Lab2.txt
+    19	15:26	cd ..
+    20	15:26	exit
+    21	15:30	head Lab1.c
+    22	15:30	tail Lab1.c
+    23	15:30	ls -al | less
+    24	15:30	history
+[wrightr@atoz:25]> quit
+quit: Command not found.
+[wrightr@atoz:26]> exit
+exit
+
+Script done on Mon 06 Feb 2017 03:30:57 PM PST
