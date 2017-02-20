@@ -1,0 +1,95 @@
+Script started on Mon 20 Feb 2017 03:47:06 PM PST
+[wrightr@athena:21]> cat lab5.c
+/* Richard Wright                                  */
+/* Lab 5                                           */
+/* Figure the area and circumference of a cylinder */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+#define FILE_IN  "lab5.dat"
+//#define FILE_IN  "lab5sample.dat"
+#define FILE_OUT "lab5.out"
+
+int main(void)
+{
+	int count = 1;
+	double radius, height, area, vol;
+	FILE * input_file = fopen(FILE_IN, "r");
+	FILE * output_file = fopen(FILE_OUT, "w");
+
+	if(input_file == NULL)
+	{
+		printf("\nError on opening the input file \n\n");
+		exit(EXIT_FAILURE);
+	}	
+
+	if(output_file == NULL)
+	{
+		printf("\nError on opening the output file \n\n");
+		exit(EXIT_FAILURE);
+		
+	}
+
+	printf("\nRichard Wright. Lab 5.\n\n");	
+
+	while((fscanf(input_file, "%lf%lf", &radius, &height)) == 2)
+	{
+
+		area = M_PI * radius * radius;
+		vol = area * height;
+
+		fprintf(output_file, "\nCylinder %1d", count);
+		fprintf(output_file, "\nThe radius is:    %9.3f", radius);
+		fprintf(output_file, "\nThe height is:    %9.3f", height);
+		fprintf(output_file, "\nThe top area is:  %9.3f", area);
+		fprintf(output_file, "\nThe volume is:    %9.3f\n\n", vol);
+			
+		count++;
+
+	}
+	
+	fclose(input_file);
+	fclose(output_file);
+
+	return EXIT_SUCCESS;
+}
+[wrightr@athena:22]> gcc -lm lab5.c
+[wrightr@athena:23]> a.out
+
+Richard Wright. Lab 5.
+
+[wrightr@athena:24]> cat lab5.out
+
+Cylinder 1
+The radius is:        3.000
+The height is:        4.000
+The top area is:     28.274
+The volume is:      113.097
+
+
+Cylinder 2
+The radius is:        5.000
+The height is:       14.200
+The top area is:     78.540
+The volume is:     1115.265
+
+
+Cylinder 3
+The radius is:       50.000
+The height is:        2.000
+The top area is:   7853.982
+The volume is:    15707.963
+
+
+Cylinder 4
+The radius is:       50.000
+The height is:       10.000
+The top area is:   7853.982
+The volume is:    78539.816
+
+[wrightr@athena:25]> exit
+exit
+
+Script done on Mon 20 Feb 2017 03:47:35 PM PST
